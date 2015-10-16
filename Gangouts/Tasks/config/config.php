@@ -3,6 +3,6 @@
 	define("DB_HOST" ,    "127.0.0.1");
 	define("DB_USER",     "root");
 	define("DB_PASSWORD", "MYSECRET");
-	define("DB_NAME" ,    "Hangouts");
+	define("DB_NAME" ,    "Gangouts");
 
 ?>

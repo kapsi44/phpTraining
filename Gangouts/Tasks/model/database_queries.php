@@ -1,34 +1,37 @@
 <?php 
+include_once '../config/config.php';
 
 class database
 {
-	function insert()
+	public $conn = "";
+	function __construct()
 	{
-		echo 'test';
-		$insert_query = "insert into registration_details(id, first_name,last_name,user_name,gender,dob,password,email,bld_grp ) 
-							values('','$firstname','$lastname','$username','$year-$month-$day','$gender','$password','$email','$bloodGrp')";
-		$result1 = mysqli_query($conn, $insert_query);
-		if ($result1) {
-			echo "\n Input fetched";
+		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+		if (!$conn) {
+			echo "connection failed ";
 		} else {
-			echo "\n fail";
+			echo 'Connected successfully';
 		}
-	}
-	 function select()
-	 {
-	 $select_query ="select * from  " 	
-	 	
-	 }
-	function delete()
-	{
-		
-		
+	
 	}
 	
+     
+     
+     
+     function insert ($table, $data, $pdo)
+     {
+         foreach($data as $column => $value)
+         {
+        	$insert_query = "INSERT INTO {$table} ({$column}) VALUES (:{$column});";
+        	$result1 = mysqli_query($this->conn, $insert_query);
+        	$stmt = $pdo->prepare($sql);
+        	$stmt->execute(array(':'.$column => $value));
+         }
+     }
 	
+
+
 }
-
-
 
 
 ?>

@@ -2,12 +2,14 @@
 
 include_once '../controller/tagFunctions.php';
 include_once '../controller/signup.php';
-include_once '../model/validateRegister.php';
+//include_once '../model/validateRegister.php';
+//include 'check.php';
 $signup = new SignupController();
-
+if(isset($_POST['submit'])) {
     
     $signup->addUser();
 
+}
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +74,7 @@ $signup = new SignupController();
 
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		            <form role="form" method="post" action="success.php">
+		            <form role="form" method="post" >
 			            <h2>Please Sign Up <small>It's free and always will be.</small></h2>
 			            <hr class="colorgraph">
 			            <div class="row">
@@ -80,14 +82,14 @@ $signup = new SignupController();
 					            <div class="form-group">
                                   <?php
 inputText("fn", "First Name", "1");
-?>
+?><span class="error">
 					            </div>
 				            </div>
 				            <div class="col-xs-12 col-sm-6 col-md-6">
 					            <div class="form-group">
 						          <?php
 inputText("ln", "Last Name", "2");
-?>  
+?>  <span class="error">
 					            </div>
 				            </div>
 			            </div>
@@ -99,21 +101,21 @@ inputText("username", "User Name", "3");
 			            <div class="form-group">
 				           <?php
 inputEmail("email", "Email Address", "4");
-?> 
+?> <span class="error">
 			            </div>
 			            <div class="row">
 				            <div class="col-xs-12 col-sm-6 col-md-6">
 					            <div class="form-group">
 						            <?php
 inputPassword("password", "Password", "5");
-?>
+?><span class="error">
 					            </div>
 				            </div>
 				            <div class="col-xs-12 col-sm-6 col-md-6">
 					            <div class="form-group">
 						            <?php
 inputPassword("confirmPassword", "Re-enter Password", "6");
-?>
+?><span class="error">
 					            </div>
 				            </div>
 			            </div>
@@ -184,13 +186,13 @@ option("Singing,Dancing,Cooking,Painting,Surfing,Sports,Reading,Teaching,Fishing
                                     <div class="col-sm-12">
                                         <div class="radio">
                                           <label>
-                                            <input type="radio" name="gender" value="Male">
+                                            <input type="radio" name="gender" value="male">
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                             Male
                                           </label>
                                        
                                           <label>
-                                            <input type="radio" name="gender" value="Female">
+                                            <input type="radio" name="gender" value="female">
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                            Female
                                           </label>
@@ -227,6 +229,7 @@ option("10th,12th,B.E,B.Tech,MCA,Phd");
 				             <div class="form-group">
                             <div class="col-xs-12 col-md-6"><input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
 				            <div class="col-xs-12 col-md-6"><a href="signin.php" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+                           <span class="success">
                         </div> </form>   			            
                         </div>
 		          
