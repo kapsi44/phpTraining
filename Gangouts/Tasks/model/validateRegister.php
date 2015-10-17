@@ -2,9 +2,25 @@
 //include_once 'connect.php';
 include_once '../controller/signup.php';
 //include_once '../view/register.php';
+$sign             = new SignupController();
+$sign->first_name = $_POST['fn'];
+
+$sign->last_name        = $_POST['ln'];
+$sign->user_name        = $_POST['username'];
+$sign->mobile           = $_POST['mobile'];
+$sign->gender           = $_POST['gender'];
+$sign->day              = $_POST['day'];
+$sign->year             = $_POST['year'];
+$sign->month            = $_POST['month'];
+$sign->blood_group      = $_POST['bloodGroup'];
+$sign->password         = $_POST['password'];
+$sign->confirm_password = $_POST['confirmPassword'];
+$sign->email            = $_POST['email'];
+$sign->age              = date('Y') - $sign->year;
 
 class Register
 {
+    
     
     
     public function __autoload($class)

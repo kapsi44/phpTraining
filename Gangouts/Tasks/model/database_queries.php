@@ -18,15 +18,12 @@ class database
      
      
      
-     function insert ($table, $data, $pdo)
-     {
-         foreach($data as $column => $value)
-         {
-        	$insert_query = "INSERT INTO {$table} ({$column}) VALUES (:{$column});";
-        	$result1 = mysqli_query($this->conn, $insert_query);
-        	$stmt = $pdo->prepare($sql);
-        	$stmt->execute(array(':'.$column => $value));
-         }
+     public function insert ($table, $data)
+     {   
+         $column = implode(",",array_keys($data));
+         $value  = "'". implode(",",array_values($data))."'";
+         $query  = "insert into $table ($column)values('kaps44')";
+         return $query;
      }
 	
 
