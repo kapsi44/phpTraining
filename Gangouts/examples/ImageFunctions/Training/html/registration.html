@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" type="text/css" href="../css/box.css">
+            <script type="text/javascript" src="common.js"></script>
+        </head>
+            <body>
+                 <h1>
+                    <header > <image align="left" src="../Images/lines.png" width=3% height=2%/> &nbsp Welcome ><a href="template.html" 
+                     style="font-size:30px; text-decoration:none"> Home</a></header>
+                 </h1>
+<!------------------------LEFT BOX-------------------------------->                
+                <div class="left">
+                        <h1 style="font:monospace; color:#fefafa">Contents</h1>
+                                <ul type="square">   
+                                        <font face="monospace" color="orange" size="4">   
+                                                <div ="leftcontents"> 
+                                                        <li><a href="#">home</a></li>
+                                                        <li><a href="#">Index</a></li>
+                                                        <li><a href="#">Contact Us</a></li>
+                                                </div>                
+                                        </font>
+                                </ul>
+               </div>
+<!------------------------RIGHT BOX-------------------------------->                 
+               <div class="right">  
+               <
+                
+                                   
+              </div>
+    
+<!------------------------CENTER BOX-------------------------------->                  
+                 
+                 
+             <div class="center">
+             <form action="" onsubmit="return validateSignup()">
+                        <fieldset>
+                                <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" onblur="isEmpty(id)" />
+                                                <span id="nameError" style="display: none;">You can only use alphabetic characters, hyphens and apostrophes</span>
+                        </fieldset>
+    
+                        <fieldset>
+                                <label for="email">Email</label>
+                                        <input type="text" name="email" id="email" onblur="isEmpty(id)" />
+                                                <span id="emailError" style="display: none;">You must enter a valid email address</span>
+                        </fieldset> 
+                        <fieldset>
+                                <label for="city">Select City</label>
+                                <select name="city" id="city" onblur="validateSelect(name)">
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Kolkatta">Kolkatta</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Delhi">Delhi</option>
+                                </select>
+                
+                                 <span class="validateError" id="cityError" style="display: none;">You must select your favourite animal</span>
+                        </fieldset> 
+                        
+                        <fieldset>
+                                <label for="gender">Please Select Your Gender</label>
+                                    <ul>
+                                    <li>
+                                      <input type="radio" name="Gender" id="male" value="Male" onblur="validateRadio(id)" />
+                                      <label for="male">Male</label>
+                                    </li>
+                                    <li>
+                                      <input type="radio" name="Gender" id="Female" value="Female" onblur="validateRadio(id)" />
+                                      <label for="Female">Female</label>
+                                    </li>
+                                  </ul>
+                                    <span class="validateError" id="genderError" style="display: none;">Select Your Gender?</span>
+                        </fieldset>
+    
+                        <fieldset>
+                                <label for="terms">Terms and Conditions</label>
+                                    <ul>
+                                        <li>
+                                              <input type="checkbox" name="terms" id="accept" value="accept" onblur="validateCheckbox(id)" />
+                                              <label for="accept">Accept our <a href="#">Terms and Conditions</a></label>
+                                        </li>
+                                   </ul>
+                                <span class="validateError" id="termsError" style="display: none;">You need to accept our terms and conditions</span>
+                       </fieldset>   
+                        
+                        <fieldset>
+                                <input type="submit" id="submit" name="submit" value="Submit" />
+                        </fieldset>   
+                    </form>      
+             </div>
+ 
+ 
+ <!------------------------FOOTER-------------------------------->                   
+                    
+                    <footer align="right"><font color="orange">Copyright 2015</font></footer>
+            </body>
+               </html>

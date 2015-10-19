@@ -1,0 +1,44 @@
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery1.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript">
+
+    $(function() {
+      $('#slides').slidesjs({
+        width: 940,
+        height: 528,
+       
+	     play: {
+          active: true,
+          auto: true,
+          interval: 2000,
+          swap: true
+        }
+      });
+    });
+</script>
+<link rel="stylesheet" type="type/css" href="color.css"> 
+
+</head>
+<body bgcolor="white" onload="slider()">
+<fieldset> <button class= "buton" id="b1"  data-panelid="red">Btn1</button>
+<button class= "buton" id="b2"  data-panelid="green">Btn2</button>
+<button class= "buton" id="b3"  data-panelid="violet">Btn3</button></fieldset>
+<fieldset>
+<div id="red"></div></br>
+<div id="green" ></div></br>
+<div id="violet" ></div></br> </fieldset>
+<div id="slides" align = "center" >
+<img id="1" src="../../Images/hd1.jpg" border="0" alt="hd1" width="100%" height="100%"/>	
+<img id="2" src="../../Images/hd2.jpg" border="0" alt="hd2" width="100%" height="100%"/>	
+<img id="3" src="../../Images/hd3.jpg" border="0" alt="hd3" width="100%" height="100%"/>	
+<img id="4" src="../../Images/hd4.jpg" border="0" alt="hd4" width="100%" height="100%"/>	
+</div>
+<div class="shadow"></div>
+</body>
+</html>
+

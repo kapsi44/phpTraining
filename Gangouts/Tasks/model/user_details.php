@@ -1,53 +1,54 @@
 <?php
 include_once 'database_queries.php';
 include_once '../config/config.php';
-include_once '../controller/signup.php';
+include_once '../controller/signup_controller.php';
+include_once '../view/register.php';
 class user_details
-{
+{  
 	public function insertUser()
 	{	
-		$sign                   = new SignupController();
-		/*$sign->first_name       = $_POST['fn'];
-		$sign->last_name        = $_POST['ln'];
-		$sign->user_name        = $_POST['username'];
-		$sign->gender           = $_POST['gender'];
-		$sign->day              = $_POST['day'];
-		$sign->year             = $_POST['year'];
-		$sign->month            = $_POST['month'];
-		$sign->blood_group      = $_POST['bloodGroup'];
-		$sign->password         = $_POST['password'];*/
-		//$sign->user_name        = $_POST['username'];
-		
-		echo $sign->user_name;
 		$table_name="user_details";
-		$add['user_name']= "";
+		$add['user_name'] = $_POST['username'];
+		$add['first_name']= $_POST['fn'];
+		$add['last_name'] = $_POST['ln'];
+		$add['age']       = date('Y')-$_POST['year'];
+		$add['gender']    = $_POST['gender'];
+		$add['password']  = $_POST['password'];
+		$add['blood_group']= $_POST['bloodGroup'];
 		$db_queries=new database();
-		$user_query = $db_queries->insert($table_name,$add);
 		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 		$query= $db_queries->insert($table_name,$add);
 		$result1    = mysqli_query($conn, $query);
+		echo $query;
 		if ($result1) {
-			echo "\n Input fetched";
+			return true;
 		} else {
-			echo "\n fail";
+			echo false;
 		}
 	}
 	
 	public function insertUserAddress()
-	{
-		
-		
+	{   $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
+		$table_name= "address";
+		$query= $db_queries->insert($table_name,$add);	
+		$result1    = mysqli_query($conn, $query);
 	}
 	
 	public function	insertUserMobile()
-	{
-		
+	{   $add['mobile'] = $_POST['mobile'];
+		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
+		$table_name= "mobile";
+		$query= $db_queries->insert($table_name,$add);	
+		$result1    = mysqli_query($conn, $query);
 		
 	}
 	
 	public function insertUserEmail()
-	{
-		
+	{	$add['user_email'] = $_POST['email'];
+		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
+		$table_name= "email";
+		$query= $db_queries->insert($table_name,$add);	
+		$result1    = mysqli_query($conn, $query);
 		
 		
 	}

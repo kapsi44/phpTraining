@@ -1,0 +1,73 @@
+//creation of database
+
+create database user_management_system;
+
+//creation of Tables
+
+create table user_details(id varchar(10) primary key,first_name varchar(50), last_name varchar(50), dob date ,blood_group varchar(5), gender char(1));
+
+create table Email(users int(5),iD varchar(10), email varchar(20)); 
+
+create table area_of_interest(users int(5),id varchar(10), interest varchar(20));
+
+create table Mobile(users int(5),id varchar(10), mobile_no bigint(10));
+//insert values into tables
+
+insert into user_details values('A01', 'Amit', 'Kumar', 23/12/1994, 'a+',21,'m');
+
+//altration 
+
+alter table Qualifications modify Users INT(10) auto_increment;   
+
+alter table Area_of_Interest add constraint fk_email foreign key(id) REFERENCES user_details(id) on update cascade on delete cascade;
+
+alter table mobile_no modify users INT(10) auto_increment;
+
+
+// grant privileges
+
+GRANT SELECT ON *.* TO 'USERNAME'@'172.24.144.63' IDENTIFIED BY 'mysecret' WITH GRANT OPTION;
+
+//index
+
+CREATE INDEX userdetails ON user_details(age);
+
+//distinct values
+
+SELECT DISTINCT id FROM user_details;
+
+//Rollback privileges
+REVOKE select ON Training.*  FROM 'kap'@'localhost';
+
+//
+
+ select u.first_name, u.id , q.institute from user_details u right join qualifications q on u.id=q.user_id; 
+//users from particular college
+ 
+ select count(u.first_name), u.id , q.institute from user_details u right join qualifications q on u.id=q.user_id group by institute having institute='mnm'; 
+
+// 
+
+select u.first_name, u.id , q.institute from user_details u right join qualifications q on u.id=q.user_id where institute= 'MNM'; 
+
+//who doesnt like singing
+
+select u.first_name, u.id , i.interest from user_details u right join area_of_interest i on u.id = i.id where interest != 'singing'  ;
+
+//who have more than mobile no
+select u.first_name, u.id , m.mobile from user_details u right join mobile_no m on u.id = m.id group by m.id  having count(distinct mobile)>1  ;
+
+//maximum no. of interest
+select id from area_of_interest group by id order by count(*) desc limit 1;
+
+//repeated first name
+
+select id,first_name from user_details group by first_name order by count(*) desc limit 1;
+
+// age>25 && more area of interest 
+
+select * from user_details where id in (select id from area_of_interest group by id order by count(*) desc) and age>25  ;
+
+
+
+

@@ -1,0 +1,161 @@
+<!DOCTYPE html5>
+    <html>
+        <head>  
+ 	        <title>Student Registration Form </title>
+		<link rel="stylesheet" type="text/css" href="../css/box.css">
+		        <link rel="stylesheet" type="text/css" href="../css/style.css"> 
+        </head>	
+            <body>
+<span title="I am hovering over the text">This is the text I want to have a mousover</span>
+			    <div class="head"><h3 align="center">STUDENT REGISTRATION FORM</h3></div>
+				    <div class="right">hello<img src="../Images/a.jpg" height="50" width="50"></div> 			
+                        <div class="main" >
+				            <form method="POST">
+ 
+				
+					                <table cellpadding="10">
+                 					    <tr>
+					                        <td>First Name</td>
+					                        
+						                       <td> <input type="text" id="fn" maxlength="30" onblur="return isEmpty(this)"/>
+					                           <label id="message1" for="fn"></label> 
+					                        </td>
+					                    
+                 					   
+					                        <td>Last Name</td>
+					                        <td>
+						                        <input type="text" name="ln" maxlength="30"/>
+					                        </td>
+					                    </tr>
+                 					    <tr>
+					                        <td>DOB</td>
+                                            <td>
+						                        <input type="date" value="date" name="date">
+					                        </td>
+					                    </tr>
+                 					
+					
+					                    <tr>
+					                        <td> Email Id</td>
+					                        <td>  <input title="Please enter your email" type="email" name="email" maxlength="100" /></td>
+					                    </tr>
+					                 
+					
+					                <tr>
+					                <td>MOBILE NUMBER</td>
+					                <td>
+					                <input type="text" id="no" maxlength="10" onkeypress=" isNumberKey(no)" />
+				
+					                </td>
+					                </tr>
+					                 
+					
+					                <tr>
+					                <td>GENDER</td>
+					                <td >
+					                            <input type="radio" name="gender" value="Male" />Male</td><td>
+					                      <input type="radio" name="gender" value="Female" /> Female
+					                </td>
+					                </tr>
+					                 
+					
+					                <tr>
+					                <td>  ADDRESS <br /><br /><br /></td>
+					                <td> <textarea name="address" rows="4" cols="30"> </textarea></td>
+					                </tr>
+					                 
+					
+					                <tr>
+					                <td>CITY</td>
+					                <td>	<input type="text" name="City" maxlength="30" />
+					
+					                </td>
+					                </tr>
+					                 
+					
+					                <tr>
+					                <td>PIN CODE</td>
+					                <td>	<input type="text" name="pc" maxlength="6" />
+					
+					                </td>
+					                </tr>
+					                 
+					
+					                <tr>
+					                <td>STATE</td>
+					                <td>	<input type="text" name="State" maxlength="30" />
+					
+					                </td>
+					                </tr>
+					                 
+					
+					                <tr>
+					                <td>COUNTRY</td>
+					                <td><input type="text" name="Country"/></td>
+					                </tr>
+					
+					                <tr>
+					
+					                <td> CREATE PASSWORD</td>						
+					                <td> <input type="password" value="cp"/></td>
+					                </tr>
+					
+					                <tr>
+					                <td>RETYPE PASSWORD</td>
+					                <td><input type="password" create="rp"/></td>
+					                </tr>
+					
+					
+					                <tr>
+					                <td> SELECT COURSES</td>
+                <td><pre>
+                <input type="checkbox" value="CSE"> CSE
+                <input type="checkbox" value="ece"> ECE
+                <input type="checkbox" value="eee"> EEE
+                <input type="checkbox" value="mech"> MECH
+                </pre></td>
+					                </tr>
+					                 
+					                </div>
+					                <tr>
+					                <td colspan="2" align="center">
+					                <div class="sub"><input type="submit" value="Submit"  width="50" height="30" onclick="isEmpty()"></div></td>
+					                <td><div class="res">
+					                <input name="res" type="reset" value="Reset" width="50" height="30">
+					                </div>					
+					                </td>
+					                </tr>
+					                </table>
+					                 
+					    </form>
+					    <script>
+      
+      function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode 
+         
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return alert("Enter oly numbers");
+
+         return true;
+      }
+      </script>
+      <!--function a(id)
+{
+    var n=document.getElementById(id).value;
+    if (n.length < 1)
+    {
+        window.alert("Field is blank");
+        return false;
+    }
+}
+      function isEmpty(field)
+      {
+        if (field.value==''){
+        alert("please fill");
+      } 
+      
+   </script>-->
+					 
+					</body>
+					</html>

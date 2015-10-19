@@ -1,7 +1,7 @@
 <?php
 
-include_once '../controller/tagFunctions.php';
-include_once '../controller/signup.php';
+include_once 'helper.php';
+include_once '../controller/signup_controller.php';
 //include_once '../model/validateRegister.php';
 //include 'check.php';
 $signup = new SignupController();

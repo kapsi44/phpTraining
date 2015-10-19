@@ -1,0 +1,86 @@
+	body 
+	{   
+		background-image: url("../Images/retina-wallpaper-mac-4k-screen-2.jpg");
+    
+	}
+
+
+
+	code 
+	{
+  
+	  	color: black;
+		font: 15px/24px "Source Code Pro", Inconsolata,"Lucida console", Terminal, "Courier New",Courier;
+		  border: 30px solid gray; 
+		  padding: 20px;
+		  width: 32px;
+		  height: 90px;
+		  line-height: 20px;
+		  margin: 14px;
+		  
+		  width: 90px;
+		}
+		.border-rounded {
+		  border-radius: 5px;
+		}
+
+			INPUT 
+			{
+				height:25px;
+				width:250px;
+		background-color: #ceeefa;
+		font-family: Arial, Helevetica, sans-serif;
+		font-size: 18px;
+		color:black;
+	}
+
+	INPUT:focus
+	{
+		border:2px solid green;
+	}
+	
+	INPUT:invalid
+	{
+		border:2px solid red;
+	}
+	
+              .sub 
+			{
+				height:40px;
+				width:200px;
+		background-color: #563456;
+		font-family: Arial, Helevetica, sans-serif;
+		font-size: 18px;
+		color:black;
+	}
+              .res 
+			{
+				height:40px;
+				width:200px;
+		background-color: #563456;
+		font-family: Arial, Helevetica, sans-serif;
+		font-size: 18px;
+		color:black;
+	}
+
+	.head {
+		  border: 10px solid blue;
+		  width: 500px;
+		  margin: 20px auto;
+		}
+
+	.main
+	{       float:center     
+  		width: 70px;
+		margin: 100px ;
+		padding: 50px;
+  		border: 10px solid green;
+	}
+
+.right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+    border:10px; 
+}

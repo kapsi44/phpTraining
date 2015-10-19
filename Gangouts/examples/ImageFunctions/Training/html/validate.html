@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="demo_form.asp" method="post">
+  <input id="no" type="text" name="fname" onkeypress="isNumberKey(no)" required>
+  <input type="submit" value="Submit" ">
+</form>
+<script>
+function isNumberKey(evt)
+          {
+             var charCode = (evt.which) ? evt.which : event.keyCode
+             if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return alert("pls enter no.");
+ 
+             return true;
+          }
+</script>
+<p>If you click submit, without filling out the text field,
+your browser will display an error message.</p>
+
+</body>
+</html>
+
