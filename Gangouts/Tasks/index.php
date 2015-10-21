@@ -1,5 +1,5 @@
 <?php
 
- header('Location: /Gangouts/Tasks/view/index.php');
+ header('Location: /Gangouts/Tasks/Application/view/index.php');
  
 ?> 
