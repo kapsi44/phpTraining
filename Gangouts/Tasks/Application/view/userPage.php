@@ -35,7 +35,7 @@
                     
                   </ul>
                 </li>
-				<li><a href="#contact"><?php echo 'Welcome       '.$_SESSION['email_id'].$_SESSION['username'];?></a></li>
+				<li><a href="#contact"><?php echo 'Welcome       '.$_SESSION['email'];?></a></li>
 			  </ul>
             </div>
           </div>

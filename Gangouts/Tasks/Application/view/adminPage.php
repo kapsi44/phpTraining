@@ -1,8 +1,18 @@
 <?php
 include_once 'header.php';
 include_once '../../Config/config.php';
+session_start();
 $disp = new AdminLogin();
 $array = $disp->displayUsers();
+$access = new AdminController();
+$user = new AdminLogin();
+$user->displayUsers();
+if(isset($_POST['btn'])) {
+	echo "buton clickd";
+	$_SESSION['em'] = $row['email'];
+	$user = $_SESSION['em']; 	
+	$access->unblockUser($user);
+}
 ?>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -23,7 +33,7 @@ $array = $disp->displayUsers();
             <li><a href="#">Profile</a></li>
             <li><a href="#">Help</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-right" method="POST">
             <input type="text" class="form-control" placeholder="Search...">
           </form>
         </div>
@@ -79,7 +89,7 @@ $array = $disp->displayUsers();
 				$user = new AdminLogin();
 				$user->displayUsers();
 				?>
-          
+           <form method="POST">
 		  <h2 class="sub-header">Registered Users</h2>
           <div class="table-responsive">
             <table class="table table-striped" border="1"  style="margin: 0 auto;">
@@ -90,6 +100,7 @@ $array = $disp->displayUsers();
                   <th>UserID</th>
                   <th>Email</th>
                   <th>Gender</th>
+				  <th>Status</th>	
 				  <th>Action</th>		
 				</tr>
               </thead>
@@ -107,7 +118,8 @@ $array = $disp->displayUsers();
 								<td>{$row['user_name']}</td>
 								<td>{$row['email']}</td>
 								<td>{$row['gender']}</td>
-								<td><button>Block</button></td>
+								<td>{$row['status']}</td>
+								<td><input type='submit' name='btn' value='Unblock'/></td>
 							</tr>\n";
                         }
 					  }
@@ -115,6 +127,7 @@ $array = $disp->displayUsers();
               </tbody>
             </table>
           </div>
+		  </form>
         </div>
       </div>
     </div>

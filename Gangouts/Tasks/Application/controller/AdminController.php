@@ -13,5 +13,15 @@ class AdminController extends Controller
 			echo "get last";
 		}
 	 }		
+	public function unblockUser($user)
+	{
+		$log = new AdminLogin();
+		if($log->unblock($user) === true){
+			echo "Account unblocked successfully";
+		}
+		
+	}
 }
+
+
 ?>

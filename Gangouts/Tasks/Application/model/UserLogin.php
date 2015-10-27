@@ -1,6 +1,7 @@
 <?php
 include_once '../../Config/config.php';
 include_once '../view/signin.php';
+session_start();
 
 Class UserLogin
 {
@@ -28,5 +29,15 @@ Class UserLogin
 		$retval = mysqli_query($conn , $query );
 		return $retval;
 	}	
+    public function blockUser($user)
+	{	echo $user;
+		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+		$query= "update user_details SET status='Blocked' where email='$user'";
+		$retval = mysqli_query($conn , $query );
+		if(!retval) {
+		echo "you are blocked";
+		}
+	}
+	
 }
 ?>

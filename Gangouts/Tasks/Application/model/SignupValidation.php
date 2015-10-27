@@ -1,5 +1,5 @@
 <?php
-include_once '../view/signup.php';
+//include_once '../view/signup.php';
 include_once '../../Config/config.php';
 
 class SignupValidation

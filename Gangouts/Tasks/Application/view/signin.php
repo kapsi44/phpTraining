@@ -1,14 +1,30 @@
 <?php 
-    session_start(); 
+     
 	include('header.php'); 
     include_once '../../Config/config.php';
-    $sign=new UserPageController();
-    if(isset($_POST['submit'])) {
-    $email = $_POST['email_id'];
-	$_SESSION['email_id'] = $email;
-	$sign->accessUser();
-    }
-    ?>
+     
+		$user="";
+    	$sign=new UserLogin();
+    	if(isset($_POST['submit'])) {
+    		echo "submited";
+    		$email = $_POST['email_id'];
+			$pass = $_POST['password'];
+			$count=1;
+    		while($count<3){
+	    		if(empty($email) || empty($pass)) {
+	    		echo "*please fill the fields";
+	    		} elseif($sign->checkUser() === true) {
+	    			$_SESSION['email'] = $email;
+	    			$user=$_SESSION['email'];
+					$control->render("userPage");
+	    		} else {
+	    			$count++;
+	    		}
+	    		$sign->blockUser($user);
+    		}
+    	}
+    
+	?>
 <head>
     <title> Sign In </title>
 </head>

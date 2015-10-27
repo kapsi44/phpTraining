@@ -20,9 +20,9 @@ Class UserPageController extends Controller
 		$user = new UserLogin();
 		$con = new Controller();
 		if($user->checkUser() === true) {
-			$con->render('userPage');
+		     return true;
 		} else {
-			echo "Invalid user";
+			 return false;
 		}		
 	}	
 	public function  displayFriends()
