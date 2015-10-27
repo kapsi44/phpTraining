@@ -1,7 +1,9 @@
 <?php 
     include_once '../../Config/config.php';
 	include('header.php');
-    $adm=new AdminController();
+    session_start();
+    $_SESSION['admin'] = $_POST['adminId'];
+	$adm=new AdminController();
     if(isset($_POST['submit'])){
     	$adm->accessAdmin();
     }

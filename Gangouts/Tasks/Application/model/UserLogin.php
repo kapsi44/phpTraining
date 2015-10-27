@@ -30,7 +30,7 @@ Class UserLogin
 		return $retval;
 	}	
     public function blockUser($user)
-	{	echo $user;
+	{	
 		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 		$query= "update user_details SET status='Blocked' where email='$user'";
 		$retval = mysqli_query($conn , $query );

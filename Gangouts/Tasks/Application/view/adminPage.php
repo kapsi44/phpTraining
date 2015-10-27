@@ -1,17 +1,17 @@
 <?php
 include_once 'header.php';
 include_once '../../Config/config.php';
-session_start();
-$disp = new AdminLogin();
-$array = $disp->displayUsers();
-$access = new AdminController();
-$user = new AdminLogin();
-$user->displayUsers();
-if(isset($_POST['btn'])) {
-	echo "buton clickd";
-	$_SESSION['em'] = $row['email'];
-	$user = $_SESSION['em']; 	
-	$access->unblockUser($user);
+	session_start();
+	$disp = new AdminLogin();
+	$array = $disp->displayUsers();
+	$access = new AdminController();
+	$user = new AdminLogin();
+	$user->displayUsers();
+	$btn = "btn";
+	if(isset($_POST['btn'])) {
+		echo "buton clickd";
+		$mem = $_SESSION['email']; 	
+		$access->unblockUser($mem);
 }
 ?>
 
@@ -28,6 +28,7 @@ if(isset($_POST['btn'])) {
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><?php echo "Welcome  ". $_SESSION['admin']?></a></li>
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
@@ -111,15 +112,16 @@ if(isset($_POST['btn'])) {
 						echo '<tr><td colspan="4">No Rows Returned</td></tr>';
 					} else {
                          while( $row = mysqli_fetch_assoc( $array ) ){
-                            echo 
+                            $_SESSION['email']=$row['email'];
+                         	echo 
 							"<tr>
 								<td>{$row['id']}</td>
 								<td>{$row['first_name']}</td>
 								<td>{$row['user_name']}</td>
-								<td>{$row['email']}</td>
+								<td>{$_SESSION['email']}</td>
 								<td>{$row['gender']}</td>
 								<td>{$row['status']}</td>
-								<td><input type='submit' name='btn' value='Unblock'/></td>
+								<td><input type='submit' name='".$btn."' value='Unblock'/></td>
 							</tr>\n";
                         }
 					  }

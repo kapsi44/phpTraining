@@ -5,22 +5,23 @@
      
 		$user="";
     	$sign=new UserLogin();
+    	$control = new Controller();
     	if(isset($_POST['submit'])) {
-    		echo "submited";
     		$email = $_POST['email_id'];
 			$pass = $_POST['password'];
-			$count=1;
-    		while($count<3){
-	    		if(empty($email) || empty($pass)) {
-	    		echo "*please fill the fields";
-	    		} elseif($sign->checkUser() === true) {
-	    			$_SESSION['email'] = $email;
-	    			$user=$_SESSION['email'];
+			$_SESSION['count']=1;
+    		while($_SESSION['count']<4){
+	    		if($sign->checkUser() === true) {
+	    			//$_SESSION['email'] = $email;
+	    			//$user=$_SESSION['email'];
 					$control->render("userPage");
+					exit;
 	    		} else {
-	    			$count++;
+	    			$_SESSION['count']++;
+	    			echo $_SESSION['count'];
+	    			$sign->blockUser($email);
 	    		}
-	    		$sign->blockUser($user);
+	    		//$sign->blockUser($user);
     		}
     	}
     
